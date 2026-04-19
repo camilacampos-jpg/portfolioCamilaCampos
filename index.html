@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Cabeçalho: idioma, caracteres, título e ícones o que vou usar no site -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio | Camila Campos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> <!-- importa ícones Font Awesome -->
+    <!-- CSS interno - estilo visual básico do HTML -->
+        <style> 
+        /* Início do CSS interno: define variáveis de cor e zera margens e paddings */
+        /* VARIÁVEIS E RESET */
+
+        /* Parte principal (ROOT) do CSS onde define configurações do site, cria as VARIAVEIS (como cores e estilos) e reutiliza 
+        essas mesmas configurações em todo o código. O :root é como um “painel geral” onde você define padrões 
+        que serão usados no site inteiro.*/
+        :root {
+            --bg-deep: #0a192f;
+            --bg-card: #112240;
+            --accent: #64ffda;
+            --text-h: #ccd6f6;
+            --text-body: #8892b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* html controla rolagem internos */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* body onde fica todo o conteúdo que aparece na tela (imagens, botões, menus (navbar),seções do site).*/
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-body);
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* container centraliza conteúdo em todas as seções */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR (barra de navegação - MENU do site, geralmente fica no TOPO da pg.
+        Permite que o usuário navegue pelo site; clique nos links e seções (Início, Sobre, Projetos, Contato)*/
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: var(--text-h);
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .menu a:hover {
+            color: var(--accent); /* efeito visual quando o usuário passa o mouse */
+        }
+
+        /* Seção principal do site (meu nome, minha descrição, minha foto, botão “Vamos conversar?”*/
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            background: radial-gradient(circle at center, #112240 0%, #0a192f 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-nome {
+            font-size: 3.5rem;
+            color: var(--text-h);
+            margin: 10px 0;
+        }
+
+        /* destaque de texto dentro da seção principal- “Desenvolvedora Front-end em Formação” */
+        .hero-badge {
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Minha foto do perfil*/
+        .hero-foto img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: block;
+        }
+
+        /* controla os botões do site escolher cor, tamanho e formato, além de efeitos de hover (quando o mouse passa por cima)
+            para dar mais interatividade eestilo*/
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: var(--bg-deep);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: 0.3s;
+            border: 1px solid var(--accent);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .secao {
+            padding: 100px 0;
+        }
+
+        .secao-escura {
+            background-color: var(--bg-card);
+        }
+
+        .titulo-secao {
+            color: var(--text-h);
+            font-size: 2.2rem;
+            margin-bottom: 0px;
+        }
+
+        .titulo-secao span {
+            color: var(--accent);
+        }
+
+        /* imagens da minha FORMAÇÃO */
+        .formacao-grid {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--bg-deep);
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1;
+            border-top: 4px solid var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-nome {
+                font-size: 2.5rem;
+            }
+
+            .formacao-grid {
+                flex-direction: column;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    </style> <!-- FIM DO CSS INTERNO -->
+    <link rel="stylesheet" href="css/style.css"> <!-- CSS externo para estilos adicionais -->
+</head>
+
+<body>
+    <!-- Corpo da página: aqui está o conteúdo visível para o usuário -->
+    <!-- Barra de navegação fixa que leva às seções da mesma página -->
+    <!-- As classes .navbar e .menu são estilizadas no CSS interno e também no arquivo externo css/style.css. -->
+    <!-- O JavaScript externo espera um elemento com id="navbar" para aplicar efeitos ao rolar a página. -->
+    <nav id="navbar" class="navbar"> <!-- nav conecta com CSS e JS; classe .navbar definida em css/style.css -->
+        <div class="logo" style="color: var(--accent); font-weight: bold; font-size: 1.2rem;">Camila Campos</div>
+        <ul class="menu"> <!-- menu usa classe CSS .menu; definida em css/style.css -->
+            <li><a href="#inicio">Início</a></li> <!-- link interno para seção hero -->
+            <li><a href="#sobre">Sobre</a></li> <!-- link interno para seção sobre -->
+            <li><a href="#formacao">Formação</a></li> <!-- link interno para seção formacao -->
+            <li><a href="#projetos">Projetos</a></li> <!-- link interno para seção projetos -->
+            <li><a href="#contato">Contato</a></li> <!-- link interno para o footer -->
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Conteúdo principal da página -->
+        <!-- As seções abaixo usam classes CSS para layout e ID para navegação interna. -->
+        <!-- O JavaScript externo poderia usar id="inicio" para criar animações no começo. -->
+        <!-- Seção inicial (hero): apresenta nome, descrição e foto de perfil -->
+        <section class="hero" id="inicio"> <!-- seção inicial hero, estilo .hero; classe .hero definida em css/style.css -->
+            <div class="container"> <!-- container centraliza conteúdo -->
+                <div class="hero-content"> <!-- layout do hero em linha -->
+                    <div class="hero-text"> <!-- texto do hero -->
+                        <span class="hero-badge">Desenvolvedora Front-end em Formação</span> <!-- badge estilizado -->
+                        <h1 class="hero-nome">Camila Campos</h1> <!-- nome principal -->
+                        <p style="font-size: 1.2rem; color: var(--text-h);"> <!-- descrição curta do perfil -->
+                            Estudante de Ciência da Computação | Psicóloga
+                        </p>
+                        <p style="margin-top: 15px; max-width: 500px;"> <!-- texto de apresentação -->
+                            Integrando tecnologia e comportamento humano para desenvolver interfaces inteligentes e
+                            centradas nas pessoas.
+                        </p>
+                        <!-- Botão interno que leva para a seção de contato no fim da página -->
+                        <a href="#contato" class="btn">Vamos conversar?</a> <!-- .btn em css/style.css -->
+                    </div>
+                    <div class="hero-foto"> <!-- área da foto do perfil -->
+                        <img src="img/cami.jpg" alt="Camila Campos"> <!-- imagem em img/cami.jpg -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção sobre: explica quem sou, minha formação e habilidades -->
+        <!-- A classe .secao adiciona espaçamento e a classe .titulo-secao define o título em destaque. -->
+        <section class="secao" id="sobre"> <!-- .secao em css/style.css -->
+            <div class="container">
+                <h2 class="titulo-secao">Quem <span>sou eu</span></h2> <!-- .titulo-secao em css/style.css -->
+
+                <div style="max-width: 850px;">
+
+                    <p>Sou psicóloga formada pela <strong style="color: var(--accent);">Atitus Educação</strong>, com
+                        sólida experiência em
+                        comunicação estratégica e desenvolvimento humano.</p> <!-- fala da formação em psicologia -->
+
+                    <p>Atualmente, sou acadêmica de <strong style="color: var(--accent);">Ciência da
+                            Computação</strong>,
+                        direciono minha carreira para a área
+                        de tecnologia, unindo a compreensão do comportamento humano à criação de soluções digitais
+                        inovadoras.</p>
+
+                    <p>
+                        Desenvolvedora <strong style="color: var(--accent);">Front-end</strong> em formação, com
+                        conhecimentos básicos e grande motivação para crescer na área.
+                    </p>
+
+                    <!-- JORNADA ATUAL -->
+                    <h2 class="titulo-secao" style="margin-top: 40px;"> <!-- subtítulo da experiência atual -->
+                        Jornada <span>Atual</span>
+                    </h2>
+
+                    <p>
+                        <strong>Consultora de Relacionamento com o Mercado</strong> – Atitus Educação · Tempo integral
+                    </p>
+
+                    <p style="color: var(--accent); font-size: 0.9rem;"> <!-- data e formato do trabalho atual -->
+                        <strong>Desde setembro de 2018 · Presencial</strong>
+                    </p>
+
+                    <p>
+                        Profissional focada em experiência do cliente (CX) e crescimento estratégico, utilizando CRM e
+                        análise de leads para otimizar resultados.
+                    </p>
+
+                    <p>
+                        Atuo com organização de contatos e estudo do perfil do cliente.
+                    </p>
+
+                    <p style="margin-bottom: 30px;">
+                        Guiada pela inovação e visão de mercado, desenvolvo estratégias que fortalecem parcerias e
+                        impulsionam o crescimento institucional.
+                    </p>
+
+                    <!-- HABILIDADES -->
+                    <h2 class="titulo-secao"> <!-- título da lista de habilidades -->
+                        Habilidades <span>Técnicas</span>
+                    </h2>
+                    <p>
+                    <p>
+                        HTML5, CSS3, JavaScript (básico), Git e GitHub, UX/UI Design, Responsividade,
+                        CRM (gestão de leads e relacionamento com cliente), análise de dados e perfil de cliente,
+                        organização e estruturação de informações.
+                    </p>
+                    <h2 class="titulo-secao"> <!-- título para habilidades pessoais -->
+                        Habilidades <span>Comportamentais</span>
+                    </h2>
+                    <p>
+                    <p>
+                        Comunicação estratégica, empatia aplicada à experiência do cliente (CX), pensamento analítico,
+                        foco em resultados, organização e gestão de demandas, visão de negócio,
+                        proatividade, adaptabilidade e aprendizado contínuo
+                    </p>
+                    </p>
+                </div>
+        </section>
+
+        <!-- Seção formação: mostra meus certificados -->
+        <!-- A classe .secao-escura aplica um fundo escuro diferente para separar visualmente esta parte. -->
+        <section class="secao secao-escura" id="formacao"> <!-- .secao e .secao-escura em css/style.css -->
+            <div class="container">
+                <h2 class="titulo-secao">Formação <span>Acadêmica</span></h2> <!-- título da seção de formação -->
+                <!-- Grade de cards - formação acadêmica -->
+                <div class="formacao-grid"> <!-- usa CSS flex para cards -->
+                    <article class="card"> <!-- .card em css/style.css -->
+                        <h3>Ciência da Computação</h3>
+                        <p>Atitus Educação</p>
+                        <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 15px;">Em andamento</p>
+                    </article>
+                    <article class="card"> <!-- outro card de formação -->
+                        <h3>Psicologia</h3>
+                        <p>Atitus Educação</p>
+                        <p style="color: var(--accent); font-size: 0.9rem;">Concluído</p>
+                    </article>
+                </div>
+
+                <h2 class="titulo-secao" style="margin-top: 40px;">Conquistas <span>Recentes</span></h2> <!-- título de certificados -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;"> <!-- layout responsivo de certificações -->
+                    <div class="certificado-item"> <!-- elemento de certificado -->
+                        <img src="img/atitus.jpg" alt="Certificado Atitus"
+                            style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(100, 255, 218, 0.2); margin-bottom: 15px;"> <!-- imagem do certificado -->
+                        <h3 style="color: var(--text-h); font-size: 1.1rem; margin-bottom: 8px;">Desenvolvimento de
+                            Aplicações Júnior</h3>
+                        <p style="font-size: 0.9rem;">Certificação de 400h pela Atitus Educação. Foco em lógica, IA e
+                            análise de dados.</p>
+                    </div>
+                    <div class="certificado-item">
+                        <img src="img/fiap.jpg" alt="Certificado FIAP"
+                            style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(100, 255, 218, 0.2); margin-bottom: 15px;">
+                        <h3 style="color: var(--text-h); font-size: 1.1rem; margin-bottom: 8px;">IA e Computacional</h3>
+                        <p style="font-size: 0.9rem;">Fundamentos de Inteligência Artificial e computação aplicada pela
+                            FIAP.</p>
+                    </div>
+                    <div class="certificado-item">
+                        <img src="img/enap.jpg" alt="Certificado ENAP"
+                            style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(100, 255, 218, 0.2); margin-bottom: 15px;">
+                        <h3 style="color: var(--text-h); font-size: 1.1rem; margin-bottom: 8px;">Design Sprint</h3>
+                        <p style="font-size: 0.9rem;">Metodologias ágeis e resolução de problemas focadas em
+                            transformação digital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção projetos: descreve o trabalho em destaque e as tecnologias usadas -->
+        <!-- Os badges #HTML5, #CSS3 e #JavaScript mostram as tecnologias relacionadas ao portfólio. -->
+        <section class="secao" id="projetos"> <!-- .secao em css/style.css -->
+            <div class="container">
+                <span style="color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">O
+                    que estou construindo</span> <!-- texto pequeno de introdução ao projeto -->
+
+                <h2 class="titulo-secao" style="margin-bottom: 40px;">Projeto <span>em destaque</span></h2>
+
+                <div class="projeto-conteudo" style="max-width: 850px;">
+                    <h3 style="color: var(--text-h); font-size: 1.8rem; margin-bottom: 15px;">Portfólio
+                        Profissional</h3>
+
+                    <p style="color: var(--text-body); line-height: 1.8; margin-bottom: 25px; text-align: justify;">
+                        Interface responsiva focada em <strong>UX (User Experience)</strong>, aplicando conceitos de
+                        psicologia cognitiva para otimizar a navegação. O projeto utiliza HTML5 semântico, CSS3 com
+                        variáveis e JavaScript para interações dinâmicas.
+                    </p>
+                    <div
+                        style="display: flex; gap: 15px; flex-wrap: wrap; color: var(--accent); font-family: monospace; margin-top: 20px;"> <!-- tags de tecnologia usadas -->
+                        <span>#HTML5</span>
+                        <span>#CSS3</span>
+                        <span>#JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ FINAL DO SITE -->
+    <!-- Se existisse um formulário de contato, o JS externo poderia usar id="form-contato" para processar o envio. -->
+    <footer class="secao secao-escura" id="contato" style="text-align: center; padding: 60px 0;"> <!-- footer com contatos -->
+        <div class="container">
+            <h2 class="titulo-secao">Contato</h2>
+
+            <div
+                style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; font-size: 1.1rem; margin-top: 30px; align-items: center;">
+
+                <a href="mailto:camposcamila27640@gmail.com"
+                    style="color: var(--accent); text-decoration: none; transition: 0.3s;"> <!-- link direto para email -->
+                    <i class="fas fa-envelope"></i> E-mail
+                </a>
+
+                <a href="https://www.linkedin.com/in/camila-campos-1379a3287/" target="_blank"
+                    style="color: var(--accent); text-decoration: none; transition: 0.3s;"> <!-- link para LinkedIn externo -->
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+
+                <span style="color: var(--text-h);"> <!-- telefone e WhatsApp visíveis no rodapé -->
+                    <i class="fas fa-phone"></i> WhatsApp/Celular: (54) 99107-4478
+                </span>
+            </div>
+            <p style="margin-top: 60px; font-size: 0.85rem; color: var(--text-body); opacity: 0.7; line-height: 1.8;">
+                © 2026 Camila Campos | Passo Fundo – RS <br>
+            </p>
+        </div>
+        <!-- Rodapé: contato final e informação de direitos autorais -->
+    </footer>
+
+    <!-- Script externo para interatividade (navbar ao rolar a página) -->
+    <script src="js/script.js"></script>
+</body>
+</html>
