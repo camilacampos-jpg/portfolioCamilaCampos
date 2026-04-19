@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Seleciona a barra de navegação pelo ID usado em index.html
     const navbar = document.getElementById('navbar');
 
-    // Adiciona evento que monitora quando o usuário rola a página
+    // Adiciona evento que monitora quando rolar a página
     window.addEventListener('scroll', () => {
 
         // Se a navbar não existir, interrompe o código para evitar erro
