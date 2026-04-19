@@ -2,18 +2,18 @@
 <html lang="pt-BR">
 
 <head>
-    <!-- Cabeçalho: idioma, caracteres, título e ícones o que vou usar no site -->
+    <!-- Cabeçalho: idioma, caracteres, título e ícones o que usei no site -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio | Camila Campos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> <!-- importa ícones Font Awesome -->
-    <!-- CSS interno - estilo visual básico do HTML -->
+    <!-- CSS interno - estilo visual básico do HTML (veja com atenção) -->
         <style> 
         /* Início do CSS interno: define variáveis de cor e zera margens e paddings */
         /* VARIÁVEIS E RESET */
 
-        /* Parte principal (ROOT) do CSS onde define configurações do site, cria as VARIAVEIS (como cores e estilos) e reutiliza 
-        essas mesmas configurações em todo o código. O :root é como um “painel geral” onde você define padrões 
+        /* Parte principal (ROOT) do CSS define a configurações do site, cria as VARIAVEIS (como cores e estilos que escolhi) reutilizar
+        as essas mesmas configurações em todo o código. O :root é o “painel geral” onde esta definico os padrões 
         que serão usados no site inteiro.*/
         :root {
             --bg-deep: #0a192f;
@@ -29,7 +29,7 @@
             box-sizing: border-box;
         }
 
-        /* html controla rolagem internos */
+        /* html este controla rolagem interna */
         html {
             scroll-behavior: smooth;
         }
@@ -50,8 +50,8 @@
             padding: 0 20px;
         }
 
-        /* NAVBAR (barra de navegação - MENU do site, geralmente fica no TOPO da pg.
-        Permite que o usuário navegue pelo site; clique nos links e seções (Início, Sobre, Projetos, Contato)*/
+        /* NAVBAR (barra de navegação - MENU do site, geralmente fica no TOPO da pag.
+        Permite que o usuário navegue pelo site; clique nos links e seções (Início, Sobre, Projetos, Contato) Confirmar se deu certo*/
         .navbar {
             position: fixed;
             top: 0;
@@ -79,7 +79,7 @@
         }
 
         .menu a:hover {
-            color: var(--accent); /* efeito visual quando o usuário passa o mouse */
+            color: var(--accent); /* efeito visual quando passar o mouse em cima */
         }
 
         /* Seção principal do site (meu nome, minha descrição, minha foto, botão “Vamos conversar?”*/
@@ -108,7 +108,7 @@
             margin: 10px 0;
         }
 
-        /* destaque de texto dentro da seção principal- “Desenvolvedora Front-end em Formação” */
+        /* deixar em destaque o texto dentro da seção principal- “Desenvolvedora Front-end em Formação” */
         .hero-badge {
             color: var(--accent);
             border: 1px solid var(--accent);
@@ -128,8 +128,8 @@
             display: block;
         }
 
-        /* controla os botões do site escolher cor, tamanho e formato, além de efeitos de hover (quando o mouse passa por cima)
-            para dar mais interatividade eestilo*/
+        /* controlar os botões do site escolher cor, tamanho e formato, além de efeitos (quando o mouse passa por cima)
+           interatividade e estilo*/
         .btn {
             display: inline-block;
             padding: 12px 28px;
@@ -168,9 +168,9 @@
 
         /* imagens da minha FORMAÇÃO */
         .formacao-grid {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 50px;
+            display: flex; /* deixar os itens “lado a lado*/
+            gap: 20px; /* espacinho entre eles*/
+            margin-bottom: 50px; /* joga o conteúdo de baixo mais pra longe FAZER nos proximos*/
         }
 
         .card {
@@ -182,7 +182,7 @@
             transition: transform 0.3s;
         }
 
-        .card:hover {
+        .card:hover { /* efeito que acontece quando o usuário “encosta o mouse” no card*/
             transform: translateY(-5px);
         }
 
@@ -259,7 +259,7 @@
             <div class="container">
                 <h2 class="titulo-secao">Quem <span>sou eu</span></h2> <!-- .titulo-secao em css/style.css -->
 
-                <div style="max-width: 850px;">
+                <div style="max-width: 850px;"> <!-- é a caixinha na página que “decora”  (cor, tamanho, etc.). -->
 
                     <p>Sou psicóloga formada pela <strong style="color: var(--accent);">Atitus Educação</strong>, com
                         sólida experiência em
@@ -326,12 +326,12 @@
                 </div>
         </section>
 
-        <!-- Seção formação: mostra meus certificados -->
+        <!-- SEÇÃO FORMAÇÃO: mostra meus certificados -->
         <!-- A classe .secao-escura aplica um fundo escuro diferente para separar visualmente esta parte. -->
         <section class="secao secao-escura" id="formacao"> <!-- .secao e .secao-escura em css/style.css -->
             <div class="container">
                 <h2 class="titulo-secao">Formação <span>Acadêmica</span></h2> <!-- título da seção de formação -->
-                <!-- Grade de cards - formação acadêmica -->
+                <!-- cards - formação acadêmica -->
                 <div class="formacao-grid"> <!-- usa CSS flex para cards -->
                     <article class="card"> <!-- .card em css/style.css -->
                         <h3>Ciência da Computação</h3>
@@ -356,7 +356,7 @@
                         <p style="font-size: 0.9rem;">Certificação de 400h pela Atitus Educação. Foco em lógica, IA e
                             análise de dados.</p>
                     </div>
-                    <div class="certificado-item">
+                    <div class="certificado-item"> <!-- Outro elemento de certificado -->
                         <img src="img/fiap.jpg" alt="Certificado FIAP"
                             style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(100, 255, 218, 0.2); margin-bottom: 15px;">
                         <h3 style="color: var(--text-h); font-size: 1.1rem; margin-bottom: 8px;">IA e Computacional</h3>
@@ -374,12 +374,12 @@
             </div>
         </section>
 
-        <!-- Seção projetos: descreve o trabalho em destaque e as tecnologias usadas -->
-        <!-- Os badges #HTML5, #CSS3 e #JavaScript mostram as tecnologias relacionadas ao portfólio. -->
+        <!-- SEÇÃO DOS PROJETOS: descrever meu trabalho -->
+        <!-- Os badges o que foi usado para realizar o projeto #HTML5, #CSS3 e #JavaScript mostram as tecnologias relacionadas ao portfólio. -->
         <section class="secao" id="projetos"> <!-- .secao em css/style.css -->
             <div class="container">
                 <span style="color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">O
-                    que estou construindo</span> <!-- texto pequeno de introdução ao projeto -->
+                    que estou construindo</span> <!-- texto pequeno de introdução ao projeto - deixar sutil e elegante -->
 
                 <h2 class="titulo-secao" style="margin-bottom: 40px;">Projeto <span>em destaque</span></h2>
 
@@ -404,8 +404,9 @@
     </main>
 
     <!-- RODAPÉ FINAL DO SITE -->
-    <!-- Se existisse um formulário de contato, o JS externo poderia usar id="form-contato" para processar o envio. -->
-    <footer class="secao secao-escura" id="contato" style="text-align: center; padding: 60px 0;"> <!-- footer com contatos -->
+    <!-- Se existisse um formulário de contato, o JS externo poderia usar id="form-contato" para processar o envio. Mas nao vai ser inserido apenas para fins 
+    aprendizado onde eu deveria usar, se houvesse -->
+    <footer class="secao secao-escura" id="contato" style="text-align: center; padding: 60px 0;"> <!-- footer Contatos -->
         <div class="container">
             <h2 class="titulo-secao">Contato</h2>
 
@@ -413,12 +414,12 @@
                 style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; font-size: 1.1rem; margin-top: 30px; align-items: center;">
 
                 <a href="mailto:camposcamila27640@gmail.com"
-                    style="color: var(--accent); text-decoration: none; transition: 0.3s;"> <!-- link direto para email -->
+                    style="color: var(--accent); text-decoration: none; transition: 0.3s;"> <!-- link direto do meu email -->
                     <i class="fas fa-envelope"></i> E-mail
                 </a>
 
                 <a href="https://www.linkedin.com/in/camila-campos-1379a3287/" target="_blank"
-                    style="color: var(--accent); text-decoration: none; transition: 0.3s;"> <!-- link para LinkedIn externo -->
+                    style="color: var(--accent); text-decoration: none; transition: 0.3s;"> <!-- link para LinkedIn externo é para abrir uma nova pagina, confirmar-->
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
 
