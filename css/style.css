@@ -1,5 +1,5 @@
-/* Variáveis de cor usadas em todo o site: fundo, cards e texto */
-/* Essas cores são aplicadas em elementos no HTML como .navbar, .hero, .card e .btn. */
+/* Variáveis de cor usadas para todo o site: fundo, cards e texto */
+/* as cores são aplicadas em elementos nos HTML: .navbar, .hero, .card e .btn. Confirmar se estão iguais */
 :root {
   --bg-deep: #0a192f;
   --bg-card: #112240;
@@ -9,8 +9,8 @@
   --transition: 0.3s ease;
 }
 
-/* Reset básico para garantir espaçamento e layout consistentes */
-/* Afeta todo o HTML, incluindo o main, footer, seções e textos. */
+/* Reset básico  garantir espaçamento e o layout  */
+/* Afeta todo o HTML, incluindo o main, footer, seções e textos. Atenção aqui; */
 * {
   margin: 0;
   padding: 0;
@@ -19,19 +19,19 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Rolagem suave quando o usuário usa links internos no HTML */
+/* Rolagem suave nos links internos no HTML */
 html {
   scroll-behavior: smooth;
 }
 
-/* Define o fundo e a cor do texto da página inteira */
+/* Definir o fundo e a cor do texto da página inteira */
 body { /* estilos base do <body> em index.html */
   background-color: var(--bg-deep);
   color: var(--text-body);
   line-height: 1.6;
 }
 
-/* Espaçamento padrão para parágrafos em todo o site */
+/* Espaçamento padrão para parágrafos em todo o site ; ATENÇÃO */
 p {
   margin-bottom: 15px;
   line-height: 1.6;
@@ -45,8 +45,8 @@ p {
   margin-bottom: 20px;
 }
 
-/* Barra de navegação fixa no topo, usada no <nav id="navbar"> em index.html */
-/* O JS externo também modifica a aparência desta barra ao rolar a página. */
+/* Barra de navegação fixa no topo, usada no <nav id="navbar"> em index.html. CONFIRMAR - ATENÇÃO */
+/* O JS externo também modifica a aparência desta barra ao rolar a página. CONFIRMAR - ATENÇÃO */
 .navbar { /* <nav id="navbar"> */
   position: fixed;
   top: 0;
@@ -68,12 +68,12 @@ p {
   font-weight: bold;
 }
 
-/* Cor diferente para partes do logo, se usado <span> dentro dele */
+/* Cor diferente na logo */
 .logo span {
   color: #fff;
 }
 
-/* Menu horizontal aplicado ao <ul class="menu"> em index.html */
+/* Menu horizontal aplicado ao <ul class="menu"> em index.html . CONFIRMAR - ATENÇÃO */
 .menu { /* <ul class="menu"> */
   display: flex;
   gap: 30px;
@@ -88,7 +88,7 @@ p {
   transition: var(--transition);
 }
 
-/* Muda a cor do link quando o usuário passa o mouse por cima */
+/* Muda a cor do link quando passar o mouse por cima */
 .menu a:hover { /* links dentro de <ul class="menu"> em index.html */
   color: var(--accent);
 }
@@ -100,7 +100,7 @@ p {
 .hero-badge { /* <span class="hero-badge"> */
   display: inline-block;
   font-size: 12px;
-  /* Bem pequeno e discreto */
+  /* Bem pequeno e discreto . Confirmar se ficou */
   padding: 4px 10px;
   border: 1px solid var(--accent);
   margin-bottom: 10px;
@@ -137,7 +137,7 @@ p {
   background-color: var(--bg-card);
 }
 
-/* Contêiner central usado em quase todas as seções. */
+/* Contêiner central usado em quase todas as seções. CONFRIMAR */
 .container { /* .container em index.html */
   max-width: 1100px;
   margin: 0 auto;
